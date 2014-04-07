@@ -9,14 +9,13 @@
 		<link href="/css/blog.css" rel="stylesheet">
 	</head>
 	<body>
+	<script type="text/x-handlebars" data-template-name="menu_items">
 		<div class="blog-masthead">
 			<div class="container">
 				<nav class="blog-nav">
-					<a class="blog-nav-item active" href="#">Home</a>
-					<a class="blog-nav-item" href="#">New features</a>
-					<a class="blog-nav-item" href="#">Press</a>
-					<a class="blog-nav-item" href="#">New hires</a>
-					<a class="blog-nav-item" href="#">About</a>
+					{{#each}}
+					<a {{bind-attr class=":blog-nav-item chosen:active" }} href="#">{{title}}</a>
+					{{/each}}
 				</nav>
 			</div>
 		</div>
@@ -131,7 +130,14 @@
 				<a href="#">Back to top</a>
 			</p>
 		</div>
+		</script>
 		<script src="/js/libs/jquery-1.10.2.min.js"></script>
 		<script src="/js/libs/bootstrap.min.js"></script>
+		<script src="/js/libs/handlebars-1.0.0.js"></script>
+		<script src="/js/libs/ember.js"></script>
+		<script src="/js/libs/ember-data.js"></script>
+		<script src="/js/application.js"></script>
+		<script src="/js/router.js"></script>
+		<script src="/js/models/menu_item.js"></script>
 	</body>
 </html>
