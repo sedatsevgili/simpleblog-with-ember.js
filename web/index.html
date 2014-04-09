@@ -9,11 +9,11 @@
 		<link href="/css/blog.css" rel="stylesheet">
 	</head>
 	<body>
-	<script type="text/x-handlebars" data-template-name="menu_items">
+	<script type="text/x-handlebars" data-template-name="index">
 		<div class="blog-masthead">
 			<div class="container">
 				<nav class="blog-nav">
-					{{#each}}
+					{{#each menu_items}}
 					<a {{bind-attr class=":blog-nav-item chosen:active" }} href="#">{{title}}</a>
 					{{/each}}
 				</nav>
@@ -116,9 +116,9 @@
 					<div class="sidebar-module">
 						<h4>Elsewhere</h4>
 						<ol class="list-unstyled">
-							<li><a href="#">GitHub</a></li>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">Facebook</a></li>
+							{{#each social_links}}
+							<li><a {{bind-attr href="url"}}>{{label}}</a></li>
+							{{/each}}
 						</ol>
 					</div>
 				</div><!-- /.blog-sidebar -->
@@ -139,5 +139,6 @@
 		<script src="/js/application.js"></script>
 		<script src="/js/router.js"></script>
 		<script src="/js/models/menu_item.js"></script>
+		<script src="/js/models/social_link.js"></script>
 	</body>
 </html>

@@ -1,9 +1,8 @@
-SimpleBlog.Router.map(function() {
-	this.resource('menu_items', {path: '/'});
-});
-
-SimpleBlog.MenuItemsRoute = Ember.Route.extend({
+SimpleBlog.IndexRoute = Ember.Route.extend({
 	model: function() {
-		return this.store.find('menu_item');
+		return Ember.RSVP.hash({
+			menu_items: this.store.find('menu_item'),
+			social_links: this.store.find('social_link')
+		});
 	}
 });
